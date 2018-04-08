@@ -1,0 +1,10 @@
+server:
+  port: 9999
+
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+file:
+  saveDirectory: /opt/tools/cod/json/
+  filenamebase: quote_yyyyMMdd.json
