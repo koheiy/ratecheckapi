@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @RestController
@@ -36,6 +37,8 @@ public class RateCheckController {
         try {
             JsonNode root = new ObjectMapper().readTree(new File(targetFile));
             return new ResponseEntity<>(root.toString(), HttpStatus.OK);
+        } catch (FileNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
