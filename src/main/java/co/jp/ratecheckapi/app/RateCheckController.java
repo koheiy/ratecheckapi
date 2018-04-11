@@ -25,7 +25,7 @@ public class RateCheckController {
     @Value("${file.filenamebase}")
     private String fileNameBase;
 
-    @GetMapping("/mizuho/rate/{targetDate}")
+    @GetMapping("/rate/mizuho/{targetDate}")
     public ResponseEntity<String> getRate(@PathVariable("targetDate") String targetDate) {
 
         if (Strings.isEmpty(targetDate)) {
